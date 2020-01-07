@@ -77,7 +77,7 @@ abstract class Exporter {
    *         function was called.)
    */
   public function export( $ast, $funcid, $nodeline = 0, $childname = "", $childnum = 0, $namespace = "", $uses = [], $classname = "") : int {
-      
+
     // (1) if $ast is an AST node, print info and recurse
     // An instance of ast\Node declares:
     // $kind (integer, name can be retrieved using ast\get_kind_name())
@@ -108,7 +108,7 @@ abstract class Exporter {
       if( isset( $ast->docComment)) {
         $nodedoccomment = $this->quote_and_escape( $ast->docComment);
       }
-      
+
       // store node, export all children and store the relationships
       $rootnode = $this->store_node( self::LABEL_AST, $nodetype, $nodeflags, $nodeline, null, $childnum, $funcid, $classname, $this->quote_and_escape( $namespace), $nodeendline, $nodename, $nodedoccomment);
 
